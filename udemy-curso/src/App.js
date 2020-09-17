@@ -19,18 +19,26 @@ class Hello extends Component {
 
 class Text extends Component {
   render () {
-    const text = this.props.isActivated ? 'On' : 'Off'
-    const multipliedNumbers = this.props.arrayOfNumbers.map(n => n * 2)
+    const { // destructuring following alpha-order
+      arrayOfNumbers,
+      isActivated,
+      multiply,
+      number,
+      objectWithInfo,
+      text,
+    } = this.props
+    const isTextActivated = isActivated ? 'On' : 'Off'
+    const multipliedNumbers = arrayOfNumbers.map(multiply)
 
     return (
       <div>
-        <p>{this.props.text}</p>
-        <p>{this.props.number}</p>
         <p>{text}</p>
+        <p>{number}</p>
+        <p>{isTextActivated}</p>
         <p>{multipliedNumbers}</p>
         <p>{multipliedNumbers.join(', ')}</p>
-        <p>{this.props.objectWithInfo.key1}</p>
-        <p>{this.props.objectWithInfo.key2}</p>
+        <p>{objectWithInfo.key1}</p>
+        <p>{objectWithInfo.key2}</p>
       </div>
     )
   }
@@ -42,10 +50,11 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Hello title='Hello from props'/>
-        <Text 
+        <Text // props following alpha-order
           arrayOfNumbers={[2, 3, 10]}
           objectWithInfo={{ key1: 'First Value', key2: 'Second Value' }}
           isActivated // true by default when value is not assigned
+          multiply={(number) => number * 2}
           number={2}
           text='Texto en string'
         />
