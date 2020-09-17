@@ -17,12 +17,38 @@ class Hello extends Component {
   }
 }
 
+class Text extends Component {
+  render () {
+    const text = this.props.isActivated ? 'On' : 'Off'
+    const multipliedNumbers = this.props.arrayOfNumbers.map(n => n * 2)
+
+    return (
+      <div>
+        <p>{this.props.text}</p>
+        <p>{this.props.number}</p>
+        <p>{text}</p>
+        <p>{multipliedNumbers}</p>
+        <p>{multipliedNumbers.join(', ')}</p>
+        <p>{this.props.objectWithInfo.key1}</p>
+        <p>{this.props.objectWithInfo.key2}</p>
+      </div>
+    )
+  }
+}
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Hello title = 'Hello from props' />
+        <Hello title='Hello from props'/>
+        <Text 
+          arrayOfNumbers={[2, 3, 10]}
+          objectWithInfo={{ key1: 'First Value', key2: 'Second Value' }}
+          isActivated // true by default when value is not assigned
+          number={2}
+          text='Texto en string'
+        />
         <p>To get started, edit <code> src/App.js</code> and save to reload</p>
       </header>
     </div>
