@@ -26,12 +26,14 @@ class Text extends Component {
       number,
       objectWithInfo,
       text,
+      title,
     } = this.props
     const isTextActivated = isActivated ? 'On' : 'Off'
     const multipliedNumbers = arrayOfNumbers.map(multiply)
 
     return (
       <div>
+        {title}
         <p>{text}</p>
         <p>{number}</p>
         <p>{isTextActivated}</p>
@@ -57,6 +59,7 @@ function App() {
           multiply={(number) => number * 2}
           number={2}
           text='Texto en string'
+          title={<h1>This is the title</h1>} // element as prop
         />
         <p>To get started, edit <code> src/App.js</code> and save to reload</p>
       </header>
