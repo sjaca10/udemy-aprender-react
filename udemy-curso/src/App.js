@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// All components should work as pure functions
+// A pure function is defined by:
+// - Not create outside effects
+// - Return always the same result for same incoming data
+
 // Component with classic function
 // function Hello(props) {
 //   return <h2>{props.title}</h2>
