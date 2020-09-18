@@ -22,6 +22,16 @@ class Hello extends Component {
   }
 }
 
+class Title extends Component {
+  render () {
+    return <h1>{this.props.title}</h1>
+  } 
+}
+
+Title.defaultProps = {
+  title: 'Default Title'
+}
+
 class Text extends Component {
   render () {
     const { // destructuring following alpha-order
@@ -56,6 +66,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+        <Title />
         <Hello title='Hello from props'/>
         <Text // props following alpha-order
           arrayOfNumbers={[2, 3, 10]}
