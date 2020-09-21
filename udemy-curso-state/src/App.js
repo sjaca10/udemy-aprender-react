@@ -5,11 +5,13 @@ import './App.css';
 // - declaractivo porque se le dice qué se debe renderizar y no cómo debe renderizar
 // - reactivo porque reacciona a los cambios de los componentes
 class Counter extends Component {
-  constructor() {
-    super()
+  // Requerido recibir y pasar las props al constructor padre (super) para poder
+  // usarlas dentro del custom construct
+  constructor(props) {
+    super(props)
 
     this.state = {
-      counter: 1
+      counter: this.props.initialCounter
     }
 
     // No se debe mutar el estado de un componente directamente porque React
@@ -30,6 +32,10 @@ class Counter extends Component {
   }
 }
 
+Counter.defaultProps = {
+  initialCounter: 0
+}
+
 class NumberCounter extends Component {
   render() {
     console.log('NumberCounter')
@@ -41,7 +47,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Counter />
+        <Counter initialCounter={Math.random() * 1000} />
       </div>
     </div>
   );
