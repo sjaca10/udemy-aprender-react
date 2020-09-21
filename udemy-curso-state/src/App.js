@@ -24,9 +24,18 @@ class Counter extends Component {
   }
 
   render() {
-    return <span>Count: {this.state.counter}</span>
+    // El flujo de datos en React es unidireccional de componentes padres
+    // a componentes hijos.
+    return <NumberCounter counter={this.state.counter} />
   }
 }
+
+class NumberCounter extends Component {
+  render() {
+    console.log('NumberCounter')
+    return <span>Count: {this.props.counter}</span>
+  }
+} 
 
 function App() {
   return (
