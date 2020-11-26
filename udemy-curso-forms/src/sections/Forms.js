@@ -14,14 +14,14 @@ export default class Forms extends Component {
             <h4>Formularios</h4>
             <form>
                 <p>
-                    <label> Name: </label>
+                    <label htmlFor='name'> Name: </label>
                     <input
                         id='name'
                         name='userName'
                         placeholder='Introduce tu nombre' />
                 </p>
                 <p>
-                    <label>Twitter: </label>
+                    <label htmlFor='twitter'>Twitter: </label>
                     <input
                         id='twitter'
                         name='twitterAccount'
