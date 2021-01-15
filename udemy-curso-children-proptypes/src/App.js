@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Box extends Component {
   render() {
@@ -11,14 +12,20 @@ class Box extends Component {
 }
 
 class Article extends Component {
+  static propTypes = {
+    author: PropTypes.string.isRequired,
+  };
+
   render() {
+    const { title, author, date, children } = this.props
+
     return (
       <section>
-        <h2>{this.props.title}</h2>
-        <p><em>Escrito por {this.props.author}</em></p>
-        <Box>{this.props.date}</Box>
+        <h2>{title}</h2>
+        <p><em>Escrito por {author}</em></p>
+        <Box>{date}</Box>
         <article>
-          {this.props.children}
+          {children}
         </article>
       </section>
     )
